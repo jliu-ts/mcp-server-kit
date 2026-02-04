@@ -1,32 +1,48 @@
 # MCP Server
 
-**Production URL:** https://mcp.trendingsociety.com
-
-Unified API server for AI agents to access Trending Society infrastructure via the Model Context Protocol.
+Cloudflare Worker that exposes AI SDK tools via the Model Context Protocol (MCP).
 
 ## Quick Start
 
 ```bash
-# Health check
-curl https://mcp.trendingsociety.com/health
+# Install dependencies
+pnpm install
 
-# List tools (331 tools across 23 platforms)
-curl https://mcp.trendingsociety.com/tools/list
+# Set up Cloudflare (create KV namespace)
+cd servers/mcp
+npx wrangler kv namespace create API_KEYS
 
-# Execute a tool
-curl -X POST https://mcp.trendingsociety.com/tools/execute \
-  -H "Content-Type: application/json" \
-  -H "X-API-Key: YOUR_API_KEY" \
-  -d '{"tool": "linear_list_issues", "params": {"team": "Engineering", "limit": 5}}'
+# Update wrangler.toml with the namespace ID
+
+# Set secrets
+npx wrangler secret put OPENAI_API_KEY
+npx wrangler secret put LINEAR_API_KEY
+# ... add other secrets as needed
+
+# Deploy
+pnpm deploy
 ```
 
 ## Local Development
 
 ```bash
-cd services/mcp
+cd servers/mcp
 cp .dev.vars.example .dev.vars  # Add your secrets
 pnpm dev                         # Start dev server
 curl http://localhost:8787/health
+```
+
+## API Endpoints
+
+```bash
+# Health check
+curl https://your-mcp-server.workers.dev
+
+# List MCP tools
+curl https://your-mcp-server.workers.dev/mcp/tools
+
+# MCP Message endpoint (for AI clients)
+POST https://your-mcp-server.workers.dev/mcp/message
 ```
 
 ## Deployment
@@ -37,22 +53,14 @@ wrangler secret put API_KEY      # Set secrets
 wrangler tail                    # View logs
 ```
 
-## Documentation
-
-| Audience | Location |
-|----------|----------|
-| **AI Agents** | [agents/skills/mcp-registry/SKILL.md](../../agents/skills/mcp-registry/SKILL.md) |
-| **Architecture** | [agents/skills/mcp-registry/references/ARCHITECTURE.md](../../agents/skills/mcp-registry/references/ARCHITECTURE.md) |
-| **Adding Tools** | [agents/skills/mcp-registry/references/ADDING-TOOLS.md](../../agents/skills/mcp-registry/references/ADDING-TOOLS.md) |
-
 ## Claude Desktop / Cursor Integration
 
 ```json
 {
   "mcpServers": {
-    "trendingsociety": {
+    "my-mcp": {
       "type": "http",
-      "url": "https://mcp.trendingsociety.com/mcp",
+      "url": "https://your-mcp-server.workers.dev/mcp",
       "headers": {
         "X-API-Key": "YOUR_API_KEY"
       }
@@ -60,3 +68,14 @@ wrangler tail                    # View logs
   }
 }
 ```
+
+## Configuration
+
+See `wrangler.toml` for:
+
+- KV namespace bindings
+- Environment variables
+- Cron triggers
+- Worker settings
+
+See `.env.example` in the root for all available API keys.

@@ -5,7 +5,7 @@
   "description": "MCP Server Kit - Composable AI agent tools for multi-platform automations",
   "repository": {
     "type": "git",
-    "url": "https://github.com/trendingsociety/mcp-server-kit"
+    "url": "https://github.com/YOUR_ORG/YOUR_REPO"
   },
   "scripts": {
     "build": "pnpm -r build",

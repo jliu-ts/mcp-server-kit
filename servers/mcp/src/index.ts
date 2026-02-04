@@ -37,8 +37,6 @@
  * - AI SDK tools pattern (createXTools) for all platforms
  * - MCP native with full protocol support (2025-11-25 spec)
  * - REST API for direct tool execution
- *
- * Deployed to: mcp.trendingsociety.com
  */
 import {
   AirtableClient,
