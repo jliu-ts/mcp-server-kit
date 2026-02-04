@@ -1,0 +1,37 @@
+{
+  "name": "@mcp/integrations",
+  "version": "0.1.0",
+  "private": false,
+  "description": "MCP Server Kit - Third-party integration clients for AI agent tools",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*/index.d.ts",
+      "import": "./dist/*/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "typecheck": "tsc --noEmit || true",
+    "test": "echo 'No tests configured'"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.89.0",
+    "ai": "^6.0.5",
+    "zod": "^3.24.0",
+    "zod-to-json-schema": "^3.25.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.27.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.8.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

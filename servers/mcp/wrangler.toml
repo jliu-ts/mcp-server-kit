@@ -1,0 +1,48 @@
+name = "mcp-server"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# ========================================
+# CONFIGURATION - Update these values
+# ========================================
+
+# KV Namespace for API key storage
+# Create with: npx wrangler kv namespace create API_KEYS
+[[kv_namespaces]]
+binding = "API_KEYS"
+id = "YOUR_KV_NAMESPACE_ID"  # Replace with your KV namespace ID
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
+RATE_LIMIT_PER_MINUTE = "100"
+
+# ========================================
+# CRON TRIGGERS (Optional)
+# ========================================
+# Uncomment and configure as needed
+
+# [triggers]
+# crons = [
+#   "0 9 * * *",    # Daily at 9 AM UTC
+#   "0 */4 * * *",  # Every 4 hours
+# ]
+
+# ========================================
+# SECRETS
+# ========================================
+# Configure these via: npx wrangler secret put <SECRET_NAME>
+#
+# Required secrets depend on which integrations you enable:
+# - OPENAI_API_KEY
+# - ANTHROPIC_API_KEY
+# - SUPABASE_URL
+# - SUPABASE_SERVICE_ROLE_KEY
+# - LINEAR_API_KEY
+# - SLACK_BOT_TOKEN
+# - NOTION_TOKEN
+# - AIRTABLE_API_KEY
+# - etc.
+#
+# See .env.example for full list

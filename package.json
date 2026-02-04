@@ -1,0 +1,25 @@
+{
+  "name": "mcp-server-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP Server Kit - Composable AI agent tools for multi-platform automations",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trendingsociety/mcp-server-kit"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm --filter @mcp/server dev",
+    "deploy": "pnpm --filter @mcp/server deploy",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  },
+  "packageManager": "pnpm@9.15.5",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

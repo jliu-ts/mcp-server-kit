@@ -1,0 +1,58 @@
+{
+  "mcpServers": {
+    "your-mcp": {
+      "type": "http",
+      "url": "https://mcp.your-domain.com/mcp",
+      "headers": {
+        "X-API-Key": "your-api-key"
+      }
+    },
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=YOUR_PROJECT_REF"
+    },
+    "webflow": {
+      "type": "http",
+      "url": "https://mcp.webflow.com/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_WEBFLOW_TOKEN"
+      }
+    },
+    "linear": {
+      "type": "http",
+      "url": "https://mcp.linear.app/mcp"
+    },
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_CONTEXT7_KEY"
+      }
+    },
+    "sanity": {
+      "command": "npx",
+      "args": ["-y", "@sanity/mcp-server"],
+      "env": {
+        "MCP_USER_ROLE": "developer",
+        "SANITY_PROJECT_ID": "YOUR_PROJECT_ID",
+        "SANITY_DATASET": "production",
+        "SANITY_API_TOKEN": "YOUR_SANITY_TOKEN"
+      }
+    },
+    "notion": {
+      "command": "npx",
+      "args": ["@notionhq/notion-mcp-server"],
+      "env": {
+        "NOTION_TOKEN": "YOUR_NOTION_TOKEN"
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": ["shadcn@latest", "mcp"]
+    }
+  }
+}

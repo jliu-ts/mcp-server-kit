@@ -1,0 +1,26 @@
+{
+  "name": "@mcp/server",
+  "version": "0.1.0",
+  "description": "MCP Server on Cloudflare Workers - Multi-platform AI agent tools",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "types": "wrangler types"
+  },
+  "dependencies": {
+    "@mcp/integrations": "workspace:*",
+    "zod": "^3.24.0",
+    "zod-to-json-schema": "^3.24.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250204.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0",
+    "wrangler": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
