@@ -30,14 +30,14 @@ A production-ready template for building MCP (Model Context Protocol) servers on
 ### 1. Clone this template
 
 ```bash
-gh repo create my-mcp-server --template jliu-trendingsociety/mcp-server-kit --private
+gh repo create my-mcp-server --template jliu-ts/mcp-server-kit --private
 cd my-mcp-server
 ```
 
 Or manually:
 
 ```bash
-git clone https://github.com/jliu-trendingsociety/mcp-server-kit.git my-mcp-server
+git clone https://github.com/jliu-ts/mcp-server-kit.git my-mcp-server
 cd my-mcp-server
 rm -rf .git && git init
 ```
